@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Jogadores do Santos:
+    <ul>
+        {% for j in jogador: %}
+        <li>{{j}}</li>
+        {% endfor %}
+    </ul>
+
+    <p>Seus anos de contratação: </p>
+
+    <ul>
+        {% for a in contratacao%}
+        <li>{{a}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
