@@ -9,9 +9,12 @@
     <h1>Títulos</h1>
     <hr>
 
-    <form>
-        
+    <form for="{{url_for('titulos')}}", method="POST">
+        <label for="titulo">Título</label>
+        <input type="text" name="titulo">
+        <input type="submit" value="Entrar">
     </form>
+
     <ul>
         <li>Título: {{titulo}}</li>
         <li>Ano:{{ano}}</li>
