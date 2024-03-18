@@ -1,10 +1,12 @@
 from flask import render_template, request
 
-jogadores = []
+funcoes = []
 
-jogos = []
+titulares = []
 
 gamelist = [{'Título' : 'CS-GO', 'Ano' : 2012, 'Categoria' : 'FPS Online'}]
+
+timelist = [{'Nome': 'Neymar', 'Funcao' : 'atacante'}]
 
 def init_app(app):
     # Definindo a rota principal
@@ -13,23 +15,27 @@ def init_app(app):
     def home():
         # Retorno que será exibido na rota
         return render_template('index.html')
-
-    @app.route('/games', methods=['GET', 'POST'])
-    def games():
-        game = gamelist[0]
-        
-        if request.method == 'POST':
-            if request.form.get('jogador'):
-                jogadores.append(request.form.get('jogador'))
     
-            if request.form.get('jogos'):
-                jogos.append(request.form.get('jogos'))
-        return render_template('games.html', game=game, jogos=jogos, jogadores=jogadores)
-
-    @app.route('/cadgames', methods=['GET', 'POST'])
-    def cadgames():
+    @app.route('/cadastro_titulares', methods=['GET', 'POST'])
+    def cadastro_titulares():
         if request.method == 'POST':
-            if request.form.get('titulo') and request.form.get('ano') and request.form.get('categoria'):
-                gamelist.append({'Título': request.form.get('titulo'), 'Ano' : request.form.get('ano'), 'Categoria' : request.form.get('categoria')})
+            if request.form.get('nome') and request.form.get('funcao'):
+                gamelist.append({'Nome': request.form.get('nome'), 'Funcao' : request.form.get('funcao')})
         
-        return render_template('cadgames.html', gamelist=gamelist)
+        return render_template('cadgames.html', timelist=timelist)
+    
+    @app.route('/times', methods=['GET','POST'])
+    def times():
+        time = timelist[0]
+
+        if request.method == 'POST':
+            if request.form.get('titular'):
+                titulares.append(request.form.get('titular'))
+
+            if request.form.get('funcao'):
+                funcoes.append(request.form.get('funcao'))
+        return render_template('times.html', time=time, titular=titular, funcao=funcao)
+
+    @app.rout('/historia', methods=['GET', 'POST'])
+    def historia():
+        return render_template('historia.html')            

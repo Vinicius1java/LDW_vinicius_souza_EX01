@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Esta é a homepage!</h1>   
-    <hr>
+    <main>
+        <section class="banner">
+            <h2>Bem-vindo ao Santos FC</h2>
+            <p>Explore o mundo do futebol com o glorioso time do Santos.</p>
+        </section>
+
+        <section class="news">
+            <h2>Últimas Notícias</h2>
+            <div class="article">
+                <h3>Novo contrato assinado</h3>
+                <p>O Santos FC anuncia a renovação do contrato com seu artilheiro.</p>
+            </div>
+            <div class="article">
+                <h3>Vitória importante</h3>
+                <p>O time do Santos conquista uma vitória crucial em casa.</p>
+            </div>
+        </section>
+    </main>
 {% endblock content%}

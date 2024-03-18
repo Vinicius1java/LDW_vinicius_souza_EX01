@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Titulares!</h1>
+    <hr>
+
+    <p>Os titulares são:</p>
+
+    <ol>
+        {% for titular in titulares %}
+            <li>{{titular}}</li>
+        {% endfor %}
+    </ol>
+
+    <hr>
+        <form action="{{url_for('times')}}" method="POST"> <!-- Função da rota def games-->
+            <h4>Titular:</h4>
+            <input type="text" name="titular" placeholder="Digite seu nome">
+            <h4>Função:</h4>
+            <input type="text" name="funcao" placeholder="Digite o nome do game">
+            <input type="submit" value="Entrar">
+        </form>
+    <hr>
+
+    <ol>
+        {% for funcao in funcoes %}
+            <li>{{funcao}}</li>
+        {% endfor %}
+    </ol>
+
+{% endblock content%}
