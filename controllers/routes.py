@@ -19,10 +19,10 @@ def init_app(app):
     @app.route('/cadastro_titulares', methods=['GET', 'POST'])
     def cadastro_titulares():
         if request.method == 'POST':
-            if request.form.get('nome') and request.form.get('funcao'):
-                gamelist.append({'Nome': request.form.get('nome'), 'Funcao' : request.form.get('funcao')})
+            if request.form.get('titular') and request.form.get('funcao'):
+                timelist.append({'Nome': request.form.get('titular'), 'Funcao' : request.form.get('funcao')})
         
-        return render_template('cadgames.html', timelist=timelist)
+        return render_template('cadastro_titulares.html', timelist=timelist)
     
     @app.route('/times', methods=['GET','POST'])
     def times():
@@ -34,8 +34,8 @@ def init_app(app):
 
             if request.form.get('funcao'):
                 funcoes.append(request.form.get('funcao'))
-        return render_template('times.html', time=time, titular=titular, funcao=funcao)
+        return render_template('times.html', time=time, titulares=titulares, funcoes=funcoes)
 
-    @app.rout('/historia', methods=['GET', 'POST'])
+    @app.route('/historia', methods=['GET', 'POST'])
     def historia():
         return render_template('historia.html')            
